@@ -1,0 +1,778 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <title>不动产登记信息查询结果查验</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bar.css" />
+    <style type="text/css">
+      .div00 {
+        width: 720px;
+        margin: 0px auto;
+        font-size: 11pt;
+        font-family: 宋体;
+        line-height: 140%;
+      }
+      div.div20 {
+        width: 1024px;
+      }
+      .div01 {
+        font-size: 24pt;
+        line-height: 140%;
+      }
+      .div02 {
+        font-size: 14pt;
+        line-height: 140%;
+      }
+      .div03,
+      .div04 {
+        padding-left: 540px;
+        text-align: left;
+      }
+      .div20 .div03,
+      .div20 .div04 {
+        padding-left: 840px;
+      }
+      .div00 table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px black solid;
+        text-align: center;
+      }
+      .div00 table td {
+        border: 1px black solid;
+        text-align: center;
+        line-height: 140%;
+        padding: 2px 2px 2px 2px;
+        font-size: 11pt;
+        height: 32px;
+      }
+      div.div20 table td {
+        font-size: 10pt;
+      }
+      .td0 {
+        width: 44px;
+      }
+      .td1,
+      .td3 {
+        width: 120px;
+      }
+      .div00 table td.td2,
+      .div00 table td.td4 {
+        width: 212px;
+        text-align: left;
+      }
+      .div00 table td.td5 {
+        text-align: left;
+      }
+      .div00 table td.td6 {
+        text-align: left;
+        vertical-align: top;
+      }
+      .div12 td.td0 {
+        width: 84px;
+      }
+      .div12 td.td1,
+      .div12 td.td3 {
+        width: 120px;
+      }
+      .div12 table td.td2,
+      .div12 table td.td4 {
+        width: 192px;
+        text-align: left;
+      }
+    </style>
+    <style type="text/css">
+      div.bar01 {
+        /*background: url(../images/default2.gif) repeat-x;*/
+        background-color: #019fc2;
+        line-height: 240%;
+        font-size: 10pt;
+        color: White;
+        text-align: left;
+        padding-left: 12px;
+        font-weight: bold;
+      }
+      div.bar02 {
+        background: url(../images/frame02.gif) -3px -2px no-repeat;
+        line-height: 240%;
+        font-size: 10pt;
+        color: #ff6801;
+        text-align: left;
+        padding-left: 12px;
+        font-weight: bold;
+      }
+      div.bar03 {
+        background: url(../images/frame02.gif) -3px -42px no-repeat;
+        padding: 4px 16px 0px 8px;
+        text-align: left;
+      }
+      div.bar04 {
+        background: url(../images/frame02.gif) -3px -404px no-repeat;
+        height: 32px;
+      }
+
+      div.bar05 {
+        height: 25px;
+        background: url(https://test-1306134778.cos.ap-guangzhou.myqcloud.com/temp/bar01.gif)
+          left top no-repeat;
+        line-height: 200%;
+        text-align: left;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 12px;
+      }
+      table.bar06 {
+        border: none 0px;
+        border-collapse: collapse;
+        background-color: White;
+        width: 100%;
+      }
+      table.bar06 td.td0 {
+        width: 106px;
+        height: 114px;
+        border: none;
+        background: url(https://test-1306134778.cos.ap-guangzhou.myqcloud.com/temp/bar01.gif)
+          left -44px no-repeat;
+      }
+      table.bar06 td.td1 {
+        width: auto;
+        height: 114px;
+        border: none;
+        background: url(https://test-1306134778.cos.ap-guangzhou.myqcloud.com/temp/bar01.gif)
+          right -44px no-repeat;
+        padding-right: 14px;
+        vertical-align: middle;
+      }
+      div.bar07 {
+        height: 24px;
+        border: 1px solid gray;
+        text-align: left;
+        padding-left: 38px;
+        padding-right: 12px;
+        background: url(https://test-1306134778.cos.ap-guangzhou.myqcloud.com/temp/bar01.gif)
+          0px -175px;
+      }
+      div.bar08 {
+        height: 32px;
+        background: url(../images/frame03.gif) left top no-repeat;
+      }
+      div.bar08 div {
+        width: 156px;
+        margin: 10px auto;
+        padding-top: 8px;
+        text-align: center;
+        color: #144a02;
+        font-weight: bold;
+      }
+      div.bar09 {
+        background: url(../images/frame03.gif) left bottom no-repeat;
+      }
+      div.bar09 table {
+        border: 0px none;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      div.bar09 tr {
+        height: 24px;
+      }
+      div.bar09 td {
+        text-align: center;
+      }
+      div.bar10 {
+        height: 24px;
+        border: 1px solid gray;
+        text-align: left;
+        padding-left: 38px;
+        background: url(https://test-1306134778.cos.ap-guangzhou.myqcloud.com/temp/bar01.gif)
+          0px -275px;
+      }
+    </style>
+
+    <style type="text/css">
+      body {
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        font-size: 9pt;
+        font: 宋体 normal;
+        /*background: #f7f7f7;*/
+        background: url("../images/jggs/十二大背景图.jpg") no-repeat 0px 0px;
+      }
+
+      .container {
+        width: 1000px;
+        margin: 0 auto;
+        background-color: White;
+      }
+      .topNavCnt {
+        padding-left: 6px;
+        line-height: 200%;
+      }
+      .topNav table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 0px none;
+      }
+      .topNav tr {
+        height: 30px;
+      }
+      .topNav td {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 9pt;
+        font-family: 宋体;
+        font-weight: bold;
+        border: 0px none;
+        background: url("../images/bt.gif") no-repeat 0px 0px;
+        /*background: url(  "../images/default.gif" ) no-repeat 0px 0px white;*/
+        border: 0px none;
+        width: 80px;
+        height: 33px;
+        cursor: default;
+        color: White;
+      }
+      .topNav td.pad {
+        width: auto;
+        background-image: none;
+        background-color: White;
+      }
+      .topNav a {
+        text-decoration: none;
+        font-size: 9pt;
+        font-family: 宋体;
+        font-weight: bold;
+        margin-left: 4px;
+        color: white;
+      }
+      .topNav a:hover {
+        color: White;
+      }
+      .topSubNav {
+        height: 30px;
+        /*background: url(   "../images/default2.gif" ) repeat-x 0px 0px;*/
+        background-color: #eaeaea;
+        padding-left: 12px;
+        text-align: left;
+      }
+      .topSubNav span {
+        display: none;
+      }
+      .topSubNav span a {
+        text-decoration: none;
+        font-size: 9pt;
+        font-family: 宋体;
+        font-weight: normal;
+        margin-left: 4px;
+        line-height: 240%;
+        /*color: #F8791B;*/
+        color: black;
+        cursor: pointer;
+      }
+      .topSubNav span a:hover {
+        color: Red;
+      }
+
+      input.button {
+        width: 72px;
+        height: 21px;
+        margin: 4px 8px 4px 8px;
+        font: 宋体 normal;
+      }
+      table.content {
+        width: 100%;
+        border-collapse: collapse;
+        border: 0px none;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+      }
+      table.content td {
+        vertical-align: top;
+        border: 0px none;
+        text-align: center;
+      }
+      table.frame0 {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #5fb043;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+      }
+      table.frame0 td {
+        border: 0px none;
+        vertical-align: middle;
+      }
+      table.frame0 .tHead {
+        height: 30px;
+        background: url("../images/default2.gif") repeat-x 0px 0px;
+      }
+      table.frame0 .tHead td {
+        text-align: left;
+        font-weight: bold;
+        color: White;
+      }
+      table.venditionSearch .col0 {
+        width: 80px;
+        text-align: right;
+      }
+      table.venditionSearch .col1 {
+        text-align: left;
+      }
+      table.venditionSearch .col1 select {
+        width: 192px;
+      }
+      table.venditionSearch .col1 input {
+        width: 186px;
+      }
+      table.venditionSearch .tFoot td {
+        text-align: right;
+        padding-right: 14px;
+      }
+
+      table.developer {
+        width: 100%;
+        border-collapse: collapse;
+        border: 0px none;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+      }
+      table.developer td {
+        vertical-align: top;
+        border: 0px none;
+        text-align: left;
+      }
+      table.developer td.td00,
+      table.developer td.td02,
+      table.developer td.td20,
+      table.developer td.td22 {
+        background: url("../images/default.gif") no-repeat;
+      }
+      table.developer td.td00 {
+        width: 12px;
+        height: 30px;
+        background-position: 0px -53px;
+      }
+      table.developer td.td01 {
+        width: auto;
+        height: 30px;
+        background: url("../images/default2.gif") repeat-x 0px -41px;
+        vertical-align: middle;
+      }
+      table.developer td.td02 {
+        width: 12px;
+        height: 30px;
+        background-position: -33px -53px;
+      }
+      table.developer td.td10,
+      table.developer td.td11,
+      table.developer td.td12 {
+        border-top: 1px solid #6db351;
+      }
+      table.developer td.td10 {
+        border-left: 1px solid #6db351;
+      }
+      table.developer td.td12 {
+        border-right: 1px solid #6db351;
+      }
+      table.developer td.td20 {
+        width: 12px;
+        height: 12px;
+        background-position: 0px -91px;
+      }
+      table.developer td.td21 {
+        border-bottom: 1px solid #6db351;
+      }
+      table.developer td.td22 {
+        width: 12px;
+        height: 12px;
+        background-position: -33px -91px;
+      }
+      table.developer a {
+        text-decoration: none;
+        font-size: 9pt;
+        font-family: 宋体;
+        font-weight: normal;
+        margin-left: 4px;
+        line-height: 160%;
+        color: black;
+        cursor: pointer;
+      }
+      table.developer a:hover {
+        color: Red;
+      }
+      table.developer hr {
+        border-top: 0px none;
+        border-bottom: 1px dashed #6db351;
+        border-left: 0px none;
+        border-right: 0px none;
+      }
+
+      table.newProject {
+        width: 100%;
+        border-collapse: collapse;
+        border: 0px none;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+      }
+      table.newProject td {
+        vertical-align: top;
+        border: 0px none;
+        text-align: left;
+      }
+      table.newProject td.td00,
+      table.newProject td.td01,
+      table.newProject td.td02,
+      table.newProject td.td20,
+      table.newProject td.td22 {
+        background: url("../images/default.gif") no-repeat;
+      }
+      table.newProject td.td00 {
+        width: 12px;
+        height: 18px;
+        background-position: -98px -37px;
+      }
+      table.newProject td.td01 {
+        width: auto;
+        height: 18px;
+        background: url("../images/default2.gif") no-repeat;
+        vertical-align: middle;
+      }
+      table.newProject td.td02 {
+        width: 12px;
+        height: 18px;
+        background-position: -136px -37px;
+      }
+      table.newProject td.td10,
+      table.newProject td.td11,
+      table.newProject td.td12 {
+        border-top: 1px solid #6db351;
+      }
+      table.newProject td.td10 {
+        border-left: 1px solid #6db351;
+      }
+      table.newProject td.td12 {
+        border-right: 1px solid #6db351;
+      }
+      table.newProject td.td20 {
+        width: 12px;
+        height: 12px;
+        background-position: 0px -91px;
+      }
+      table.newProject td.td21 {
+        border-bottom: 1px solid #6db351;
+      }
+      table.newProject td.td22 {
+        width: 12px;
+        height: 12px;
+        background-position: -33px -91px;
+      }
+      table.newProject a {
+        text-decoration: none;
+        font-size: 9pt;
+        font-family: 宋体;
+        font-weight: normal;
+        margin-left: 4px;
+        line-height: 160%;
+        color: black;
+        cursor: pointer;
+      }
+      table.newProject a:hover {
+        color: Red;
+      }
+
+      div.query16 {
+        background: url("../images/default.gif") no-repeat 00px -303px;
+        padding-left: 24px;
+        line-height: 160%;
+        cursor: default;
+      }
+      div.query24 {
+        background: url("../images/default.gif") no-repeat 0px -330px;
+        padding-left: 32px;
+        cursor: default;
+      }
+      td.tal {
+        text-align: left;
+      }
+      td.tar {
+        text-align: right;
+      }
+
+      a {
+        color: Black;
+        text-decoration: none;
+      }
+      a:hover {
+        color: Red;
+      }
+
+      table.floorShow {
+        border: 0px none;
+        border-collapse: collapse;
+      }
+      table.floorShow td {
+        padding: 2px 8px 2px 8px;
+        line-height: 180%;
+        text-align: left;
+      }
+
+      table.projectSum {
+        border: 0px none;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      table.projectSum td {
+        width: 33%;
+        text-align: left;
+        vertical-align: bottom;
+        padding-left: 86px;
+        height: 32px;
+        background-image: url(../images/icon1.gif);
+        background-repeat: no-repeat;
+      }
+    </style>
+
+    <script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+
+    <script type="text/javascript">
+      function checkCondition() {
+        var $obj = $("#no");
+        if ($obj.val() == "") {
+          $obj.select();
+          alert("请输入证明编号。");
+          return false;
+        }
+        //            else if (/^[0-3]\d(201|202)\d[0-1]\d[0-3]\d{6}$/.test($obj.val()) == false) {
+        //                $obj.select();
+        //                alert("证明编号格式不正确。");
+        //                return false;
+        //            }
+
+        $obj = $("#cNo");
+        if ($obj.val() == "") {
+          $obj.select();
+          alert("请输入校验码。");
+          return false;
+        } else if (/^([a-z]|\d|[A-Z]){6}$/.test($obj.val()) == false) {
+          $obj.select();
+          alert("校验码格式不正确。");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      name="form1"
+      method="post"
+      action="QueryAttest88.aspx?sjbhno=002023070800686&amp;validateCode=FCBD39"
+      id="form1"
+    >
+      <div>
+        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+        <input
+          type="hidden"
+          name="__EVENTARGUMENT"
+          id="__EVENTARGUMENT"
+          value=""
+        />
+        <input
+          type="hidden"
+          name="__VIEWSTATE"
+          id="__VIEWSTATE"
+          value="/wEPDwUKLTIwNTg0Njc0OA9kFgICAw9kFgICBw8WAh4EVGV4dAW9FDxkaXYgY2xhc3M9J2RpdjAwJz48ZGl2IGNsYXNzPSdkaXYwMSc+5LiN5Yqo5Lqn55m76K6w5L+h5oGv5p+l6K+i57uT5p6cPC9kaXY+PGRpdiBjbGFzcz0nZGl2MDInPu+8iOadg+WIqeS6uuafpeivou+8iTwvZGl2PjxkaXYgY2xhc3M9J2RpdjAzJz7nvJYmbmJzcDsmbmJzcDvlj7fvvJowMDIwMjMwNzA4MDA2ODY8L2Rpdj48ZGl2IGNsYXNzPSdkaXYwNCc+5qCh6aqM56CB77yaRkNCRDM5PC9kaXY+PGRpdiBjbGFzcz0nZGl2MTEnPjx0YWJsZT48dHI+PHRkIHJvd3NwYW49JzInIGNsYXNzPSd0ZDAnIG5vd3JhcD7nlLPor7c8YnIgLz7mn6Xor6I8YnIgLz7mnaHku7Y8L3RkPjx0ZCBjbGFzcz0ndGQxJyBub3dyYXA+5p2D5Yip5Lq6PC90ZD48dGQgY2xhc3M9J3RkMicgbm93cmFwPuWRqOWNjuWxsTwvdGQ+PHRkIGNsYXNzPSd0ZDMnIG5vd3JhcD7ouqvku73or4HmmI7lj7fnoIE8L3RkPjx0ZCBjbGFzcz0ndGQ0JyBub3dyYXA+NDIyNDIyMTk3NTAxMjUzNzU0PC90ZD48L3RyPjx0cj48dGQgY2xhc3M9J3RkMSc+5Z2Q6JC9PC90ZD48dGQgY2xhc3M9J3RkMic+5Lic6I6e5biC5riF5rqq6ZWH5bGF5rCR5p2RKOm5v+m4o+i3r+aXgSnlh6Tlh7DoirHlm60y5qCL5ZWG5L2P5qW8NTA0PC90ZD48dGQgY2xhc3M9J3RkMyc+5p2D5bGe6K+B5piO5Y+356CBPC90ZD48dGQgY2xhc3M9J3RkNCc+57Kk5oi/5Zyw5p2D6K+B6I6e5a2X56ysMjYwMDEwNzY5MOWPtzwvdGQ+PC90cj48dHI+PHRkIHJvd3NwYW49JzcnIGNsYXNzPSd0ZDAnPuS4jTxiciAvPuWKqDxiciAvPuS6pzxiciAvPueZuzxiciAvPuiusDxiciAvPuaDhTxiciAvPuWGtTwvdGQ+PHRkIGNsYXNzPSd0ZDEnPuadg+WIqeS6ujwvdGQ+PHRkIGNsYXNzPSd0ZDInPuWRqOWNjuWxsTwvdGQ+PHRkIGNsYXNzPSd0ZDMnPui6q+S7veivgeaYjuWPt+eggTwvdGQ+PHRkIGNsYXNzPSd0ZDQnPjQyMjQyMjE5NzUwMTI1Mzc1NDwvdGQ+PC90cj48dHI+PHRkIGNsYXNzPSd0ZDEnPuWFseacieaDheWGtTwvdGQ+PHRkIGNvbHNwYW49JzMnIGNsYXNzPSd0ZDUnPuWNleeLrOaJgOaciTwvdGQ+PC90cj48dHI+PHRkIGNsYXNzPSd0ZDEnPuWdkOiQvTwvdGQ+PHRkIGNvbHNwYW49JzMnIGNsYXNzPSd0ZDUnPuS4nOiOnuW4gua4hea6qumVh+WxheawkeadkSjpub/puKPot6/ml4Ep5Yek5Yew6Iqx5ZutMuagi+WVhuS9j+alvDUwNDwvdGQ+PC90cj48dHI+PHRkIGNsYXNzPSd0ZDEnPuadg+WxnuivgeaYjuWPt+eggTwvdGQ+PHRkIGNsYXNzPSd0ZDInPueypOaIv+WcsOadg+ivgeiOnuWtl+esrDI2MDAxMDc2OTDlj7c8L3RkPjx0ZCBjbGFzcz0ndGQzJz7kuI3liqjkuqfljZXlhYPlj7c8YnIgLz7vvIjlnLDlj7fvvIk8L3RkPjx0ZCBjbGFzcz0ndGQ0Jz40NDE5MjAwMjEwMDJHQjAxMDA2RjAwMDIwMDUyPC90ZD48L3RyPjx0cj48dGQgY2xhc3M9J3RkMSc+5p2D5Yip57G75Z6LPC90ZD48dGQgY2xhc3M9J3RkMic+5Zu95pyJ5bu66K6+55So5Zyw5L2/55So5p2DL+aIv+Wxi+aJgOacieadgzwvdGQ+PHRkIGNsYXNzPSd0ZDMnPuadg+WIqeaAp+i0qDwvdGQ+PHRkIGNsYXNzPSd0ZDQnPuWcn+WcsO+8muWHuuiuqSAvIOaIv+Wxi++8muW4guWcuuWMluWVhuWTgeaIvzwvdGQ+PC90cj48dHI+PHRkIGNsYXNzPSd0ZDEnPueUqOmAlDwvdGQ+PHRkIGNsYXNzPSd0ZDInPuS9j+WuhTwvdGQ+PHRkIGNsYXNzPSd0ZDMnPumdouenr++8iG3Csu+8iTwvdGQ+PHRkIGNsYXNzPSd0ZDQnPuWcn+WcsO+8muWul+WcsOmdouenrzMyMTE3LjI4446hIC8g5oi/5bGL77ya5bu6562R6Z2i56evMTM2LjA5446hPC90ZD48L3RyPjx0cj48dGQgY2xhc3M9J3RkMSc+55m76K6w5pel5pyfPC90ZD48dGQgY2xhc3M9J3RkMic+MjAxMC0wMS0xODwvdGQ+PHRkIGNsYXNzPSd0ZDMnPuWcn+WcsOe7iOatouaXpeacnzwvdGQ+PHRkIGNsYXNzPSd0ZDQnPjIwNjMtMDctMDcgMDA6MDA6MDA8L3RkPjwvdHI+PHRyPjx0ZCBjbGFzcz0ndGQwJz7kuqc8YnIgLz7mnYM8YnIgLz7nirY8YnIgLz7mgIE8L3RkPjx0ZCBjbGFzcz0ndGQ2JyBjb2xzcGFuPSc0Jz4q5oq15oq85oOF5Ya177yaPGJyIC8+MeOAgeaKteaKvOadg+S6uu+8muS4reWbveW7uuiuvumTtuihjOiCoeS7veaciemZkOWFrOWPuOS4nOiOnuW4guWIhuihjO+8m+aKteaKvOS6uu+8muWRqOWNjuWxse+8m+aKteaKvOaWueW8j++8muacgOmrmOmineaKteaKvO+8m+aKteaKvOmhuuS9je+8muesrOS4gOmhuuS9je+8m+aKteaKvOacn+mZkO+8mjIwMjEtMDUtMjgg6IezIDIwMjgtMDUtMjfvvJvlgLrmnYPmlbDpop3vvJogMjUxLjc2NjXkuIflhYPvvJvmirXmirzojIPlm7TvvJrlhajpg6jvvJvmmK/lkKblrZjlnKjnpoHmraLmiJbpmZDliLbovazorqnmirXmirzkuI3liqjkuqfnmoTnuqblrprvvJrlkKbvvJvnmbvorrDor4HmmI7lj7fvvJrnsqTvvIgyMDIx77yJ5Lic6I6e5LiN5Yqo5Lqn6K+B5piO56ysMDE1Njg5MuWPt++8m+eZu+iusOaXtumXtO+8mjIwMjEtMDYtMTHjgII8YnIgLz48YnIgLz4q5p+l5bCB5oOF5Ya177yaPGJyIC8+5peg5p+l5bCB44CCPGJyIC8+PC90ZD48L3RyPjx0cj48dGQgY2xhc3M9J3RkMCc+5aSHPGJyIC8+5rOoPC90ZD48dGQgY2xhc3M9J3RkNicgY29sc3Bhbj0nNCc+PC90ZD48L3RyPjwvdGFibGU+PC9kaXY+PC9kaXY+ZGRdpO6lnyK/8FuI/PLGHMtnA9JmVQ=="
+        />
+      </div>
+
+      <script type="text/javascript">
+        //<![CDATA[
+        var theForm = document.forms["form1"];
+        if (!theForm) {
+          theForm = document.form1;
+        }
+        function __doPostBack(eventTarget, eventArgument) {
+          if (!theForm.onsubmit || theForm.onsubmit() != false) {
+            theForm.__EVENTTARGET.value = eventTarget;
+            theForm.__EVENTARGUMENT.value = eventArgument;
+            theForm.submit();
+          }
+        }
+        //]]>
+      </script>
+
+      <div>
+        <input
+          type="hidden"
+          name="__VIEWSTATEGENERATOR"
+          id="__VIEWSTATEGENERATOR"
+          value="854C7188"
+        />
+        <input
+          type="hidden"
+          name="__EVENTVALIDATION"
+          id="__EVENTVALIDATION"
+          value="/wEWBAK5q6ijDQLC767vDAKsi6CsCQLvjry/BVXNcLBpp4nH6UJDM0CBqegwoZ4t"
+        />
+      </div>
+      <div>
+        <div class="bar10">
+          <div style="margin-top: 8px">不动产登记信息查询结果查验</div>
+        </div>
+        <div>
+          <div style="padding-top: 16px; padding-left: 16px">
+            结果编号：<input
+              name="no"
+              type="text"
+              value="002023010200686"
+              maxlength="20"
+              id="no"
+              title="格式：012013052900001"
+              style="width: 120px"
+            />
+            校验码：<input
+              name="cNo"
+              type="text"
+              value="FCBD39"
+              maxlength="6"
+              id="cNo"
+              style="width: 80px"
+            />
+            <input
+              onclick="if (checkCondition())  __doPostBack('btnQuery','')"
+              name="btnQuery"
+              type="button"
+              id="btnQuery"
+              value="确定"
+              class="button"
+            />
+          </div>
+          <div>
+            <center>
+              <div class="div00">
+                <div class="div01">不动产登记信息查询结果</div>
+                <div class="div02">（权利人查询）</div>
+                <div class="div03">编&nbsp;&nbsp;号：002023010200686</div>
+                <div class="div04">校验码：FCBD39</div>
+                <div class="div11">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td rowspan="2" class="td0" nowrap="">
+                          申请<br />查询<br />条件
+                        </td>
+                        <td class="td1" nowrap="">权利人</td>
+                        <td class="td2" nowrap="">张继坤</td>
+                        <td class="td3" nowrap="">身份证明号码</td>
+                        <td class="td4" nowrap="">511602199210128123</td>
+                      </tr>
+                      <tr>
+                        <td class="td1">坐落</td>
+                        <td class="td2">
+                          东莞市虎门镇丰泰裕田花园楠谷区21座18A房
+                        </td>
+                        <td class="td3">权属证明号码</td>
+                        <td class="td4">粤房地权证莞字第0253667号</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="7" class="td0">
+                          不<br />动<br />产<br />登<br />记<br />情<br />况
+                        </td>
+                        <td class="td1">权利人</td>
+                        <td class="td2">张继坤</td>
+                        <td class="td3">身份证明号码</td>
+                        <td class="td4">511602199210128123</td>
+                      </tr>
+                      <tr>
+                        <td class="td1">共有情况</td>
+                        <td colspan="3" class="td5">单独所有</td>
+                      </tr>
+                      <tr>
+                        <td class="td1">坐落</td>
+                        <td colspan="3" class="td5">
+                          东莞市虎门镇丰泰裕田花园楠谷区21座18A房
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="td1">权属证明号码</td>
+                        <td class="td2">粤房地权证莞字第0253667号</td>
+                        <td class="td3">不动产单元号<br />（地号）</td>
+                        <td class="td4">441906002002GB00246F00040079</td>
+                      </tr>
+                      <tr>
+                        <td class="td1">权利类型</td>
+                        <td class="td2">国有建设用地使用权/房屋所有权</td>
+                        <td class="td3">权利性质</td>
+                        <td class="td4">土地：出让 / 房屋：市场化商品房</td>
+                      </tr>
+                      <tr>
+                        <td class="td1">用途</td>
+                        <td class="td2">土地:城镇住宅用地 / 房屋:住宅</td>
+                        <td class="td3">面积（m²）</td>
+                        <td class="td4">
+                          土地:宗地面积35634.00m² / 房屋:建筑面积138.25m²
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="td1">登记日期</td>
+                        <td class="td2">2022-12-14</td>
+                        <td class="td3">土地终止日期</td>
+                        <td class="td4">2063-01-18 00:00:00</td>
+                      </tr>
+                      <tr>
+                        <td class="td0">产<br />权<br />状<br />态</td>
+                        <td class="td6" colspan="4">
+                          *抵押情况：<br />无抵押。<br /><br />*查封情况：<br />无查封。<br />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="td0">备<br />注</td>
+                        <td class="td6" colspan="4"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </center>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div
+      style="
+        display: none;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+      "
+    >
+      <div
+        style="
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 80%;
+          height: 80%;
+          max-width: 1000px;
+          max-height: 1000px;
+          background-color: rgb(255, 255, 255);
+          z-index: 10000;
+          border-radius: 10px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+          overflow: hidden;
+        "
+      >
+        <iframe
+          src="chrome-extension://eangbddipcghohfjefjmfihcjgjnnemj/ext/browser/index.html"
+          style="width: 100%; height: 100%; border: none"
+        ></iframe>
+      </div>
+    </div>
+  </body>
+</html>
